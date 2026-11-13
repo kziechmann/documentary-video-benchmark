@@ -1,0 +1,19 @@
+# Fetched media never lives in git; `docubench fetch` restores it from manifests
+tasks/**/assets/*
+!tasks/**/assets/.gitkeep
+!tasks/**/assets/*.md
+
+# Submissions and scoring output
+submissions/
+results/
+*.mp4
+*.mov
+*.wav
+*.mkv
+
+# Python / tooling
+__pycache__/
+*.pyc
+.venv/
+.env
+.DS_Store

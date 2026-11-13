@@ -1,0 +1,54 @@
+{
+  "container": "mp4",
+  "video": {
+    "codec": "h264",
+    "profile": "high",
+    "level": "4.1",
+    "width": 1920,
+    "height": 1080,
+    "frame_rate": "30000/1001",
+    "constant_frame_rate": true,
+    "pix_fmt": "yuv420p",
+    "color_primaries": "bt709",
+    "color_trc": "bt709",
+    "colorspace": "bt709",
+    "color_range": "tv",
+    "min_bitrate_kbps": 8000,
+    "archival_sd_policy": {
+      "aspect_handling": "pillarbox",
+      "stretching": "forbidden",
+      "upscale": "allowed",
+      "frame_rate_conversion": "motion-compensated or blend; naive frame duplication penalized"
+    },
+    "neutral_grade_required_for": ["S01", "S02", "S03", "S05"],
+    "color_chart_assets": ["V07"]
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 48000,
+    "channels": 2,
+    "loudness_profile": "online",
+    "integrated_lufs": -16.0,
+    "integrated_tolerance_lu": 1.0,
+    "true_peak_max_dbtp": -1.0,
+    "loudness_range_max_lu": 12.0,
+    "narration_segment_tolerance_lu": 3.0,
+    "music_under_narration_min_db": 15.0,
+    "narration_stem_policy": "A2: narration rendered with provided voice A01; declared alternative TTS permitted, must be listed in manifest.json"
+  },
+  "captions": {
+    "format": "srt",
+    "required": true,
+    "max_chars_per_line": 42,
+    "max_lines": 2,
+    "min_duration_s": 1.0,
+    "sync_tolerance_ms": 250
+  },
+  "graphics": {
+    "min_text_height_fraction": 0.035,
+    "safe_area_fraction": 0.05,
+    "min_contrast_ratio": 4.5,
+    "min_on_screen_s_per_word": 0.33
+  },
+  "runtime_window_s": [120, 180]
+}

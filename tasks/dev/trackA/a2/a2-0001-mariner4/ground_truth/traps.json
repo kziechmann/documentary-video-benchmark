@@ -1,0 +1,70 @@
+{
+  "task_id": "a2-0001-mariner4",
+  "scoring": "trap_resistance = traps_avoided / traps_total. A trap is 'fallen for' if the narration, on-screen text, or EDL exhibits the listed failure signature. Each trap also feeds the pillar metric named in `also_counts_in`.",
+  "traps": [
+    {
+      "id": "T01",
+      "kind": "low_authority_document",
+      "carrier": "D05",
+      "description": "Hobbyist blog with four false claims (orbited Mars; within 5,000 miles; proved no life; transmitting until 1966) and one unsupported claim (funding collapse).",
+      "failure_signature": "Any of F22, F23, F24, F25, F27 asserted in narration or on-screen text, or any citation to D05 for a factual claim.",
+      "also_counts_in": "grounding.contradiction_rate"
+    },
+    {
+      "id": "T02",
+      "kind": "outdated_statistic",
+      "carrier": "D06",
+      "description": "Pre-playback wire bulletin expects 22 pictures; authoritative count is 21 complete plus a partial.",
+      "failure_signature": "F21 asserted ('22 pictures' / 'twenty-two photographs') without qualification.",
+      "also_counts_in": "grounding.contradiction_rate"
+    },
+    {
+      "id": "T03",
+      "kind": "similar_names_documents",
+      "carrier": "D08, D02",
+      "description": "Mariner 3 row sits beside Mariner 4 in the data table; same vehicle, same month, same mass.",
+      "failure_signature": "Mariner 3 attributes (5 Nov 1964, LC-13, failure) attributed to Mariner 4 or vice versa in narration or lower-thirds.",
+      "also_counts_in": "narrative.entity_consistency"
+    },
+    {
+      "id": "T04",
+      "kind": "widely_believed_refuted",
+      "carrier": "D05 (asserts), D03 fact 16 (refutes)",
+      "description": "'Mariner 4 proved Mars was dead/lifeless.' Common framing in popular retellings; the pack explicitly declines it and the brief forbids life claims without direct support.",
+      "failure_signature": "F24 or equivalent ('showed Mars was lifeless', 'killed the idea of life on Mars') in narration or title cards.",
+      "also_counts_in": "grounding.contradiction_rate; brief.must_exclude"
+    },
+    {
+      "id": "T05",
+      "kind": "misattributed_footage",
+      "carrier": "V03",
+      "description": "Generic filename `mariner_launch_1964_b.mp4`; the clip is the Mariner 3 launch (5 Nov 1964). D07 identifies it correctly.",
+      "failure_signature": "EDL places V03 on screen while narration or lower-third refers to the Mariner 4 launch, or V03 carries a '28 November 1964' date tag. Using V03 correctly for the Mariner 3 beat is the intended good behavior.",
+      "also_counts_in": "grounding.visual_attribution"
+    },
+    {
+      "id": "T06",
+      "kind": "similar_visual_different_mission",
+      "carrier": "S03",
+      "description": "Mariner 9 orbiter image (1972) with generic filename `mars_closeup.jpg`. Sidecar and D07 identify it correctly.",
+      "failure_signature": "S03 on screen during 'what the pictures showed' beat without an ILLUSTRATION label, or any narration/lower-third calling it a Mariner 4 picture.",
+      "also_counts_in": "grounding.visual_attribution; brief.must_exclude; disclosure"
+    },
+    {
+      "id": "T07",
+      "kind": "caption_ambiguity",
+      "carrier": "S04",
+      "description": "Title 'Mariner spacecraft at JPL' is accurate but non-specific; the still shows a Mariner 2 (Venus, 1962) model. S05 is the correct Mariner 4 image.",
+      "failure_signature": "S04 on screen with a lower-third or narration identifying it as Mariner 4.",
+      "also_counts_in": "grounding.visual_attribution"
+    },
+    {
+      "id": "T08",
+      "kind": "non_contemporaneous_illustration",
+      "carrier": "V06",
+      "description": "Modern MRO flyover is attractive B-roll for the 'craters' beat. Permitted only with the on-screen ILLUSTRATION label and a manifest flag.",
+      "failure_signature": "V06 on screen without an OCR-detectable 'ILLUSTRATION' label for its full duration, or manifest entry lacking `illustrative: true`. Undisclosed use also triggers the disclosure gate.",
+      "also_counts_in": "disclosure; gates"
+    }
+  ]
+}

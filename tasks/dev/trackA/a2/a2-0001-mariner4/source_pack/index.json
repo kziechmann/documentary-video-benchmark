@@ -1,0 +1,78 @@
+{
+  "task_id": "a2-0001-mariner4",
+  "shown_to_model": "All fields below except `benchmark_role`.",
+  "documents": [
+    {
+      "doc_id": "D01",
+      "file": "D01_nssdca_mariner4_catalog.md",
+      "title": "NSSDCA Master Catalog — Mariner 4 (spacecraft entry)",
+      "source_type": "primary / government archive",
+      "publisher": "NASA Space Science Data Coordinated Archive",
+      "date": "current",
+      "benchmark_role": "authoritative; DRAFT SUMMARY to be replaced with verbatim public-domain text"
+    },
+    {
+      "doc_id": "D02",
+      "file": "D02_jpl_results_release_1965.md",
+      "title": "JPL/NASA release on Mariner 4 encounter results",
+      "source_type": "primary / contemporaneous press release",
+      "publisher": "NASA / JPL",
+      "date": "1965-08",
+      "benchmark_role": "authoritative; DRAFT SUMMARY to be replaced with verbatim public-domain text"
+    },
+    {
+      "doc_id": "D03",
+      "file": "D03_verified_facts.md",
+      "title": "Verified facts sheet",
+      "source_type": "curated / benchmark editorial",
+      "publisher": "DocuBench editorial",
+      "date": "2026",
+      "benchmark_role": "authoritative; defines ledger statuses where primary docs are silent"
+    },
+    {
+      "doc_id": "D04",
+      "file": "D04_transcript_V01.md",
+      "title": "Transcript — JPL mission film (asset V01)",
+      "source_type": "transcript of archival film",
+      "publisher": "DocuBench (ASR + human correction)",
+      "date": "film 1965; transcript 2026",
+      "benchmark_role": "authoritative for what the film says; period claims may be superseded by D01–D03"
+    },
+    {
+      "doc_id": "D05",
+      "file": "D05_blog_redplanet_fans.md",
+      "title": "\"The probe that proved Mars was dead\" — Red Planet Fans blog",
+      "source_type": "secondary / hobbyist blog",
+      "publisher": "redplanetfans.example",
+      "date": "2019-07-14",
+      "benchmark_role": "TRAP: low authority, contains four false or unsupported claims"
+    },
+    {
+      "doc_id": "D06",
+      "file": "D06_wire_bulletin_1965-07-15.md",
+      "title": "Wire bulletin: \"Mariner 4 begins Mars picture playback\"",
+      "source_type": "secondary / contemporaneous news bulletin",
+      "publisher": "period wire service (reconstructed)",
+      "date": "1965-07-15",
+      "benchmark_role": "TRAP: outdated — pre-playback expectation (22 pictures) superseded by D01/D02 (21 complete)"
+    },
+    {
+      "doc_id": "D07",
+      "file": "D07_image_captions.md",
+      "title": "Image and clip captions with identification notes",
+      "source_type": "curated / archive captions",
+      "publisher": "DocuBench editorial from NASA/JPL captions",
+      "date": "2026",
+      "benchmark_role": "authoritative; identifies S03 and S04 correctly, resolving the misleading filenames"
+    },
+    {
+      "doc_id": "D08",
+      "file": "D08_mission_data.csv",
+      "title": "Mission data table — Mariner 3 and Mariner 4",
+      "source_type": "curated data table",
+      "publisher": "DocuBench editorial from D01",
+      "date": "2026",
+      "benchmark_role": "authoritative; contains Mariner 3 row to test similar-name confusion"
+    }
+  ]
+}

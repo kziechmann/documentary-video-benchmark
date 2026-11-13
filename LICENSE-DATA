@@ -1,0 +1,11 @@
+Task metadata, annotations, briefs, source-pack documents authored for this
+benchmark, ground-truth files, and documentation in this repository are
+licensed under the Creative Commons Attribution 4.0 International License
+(CC BY 4.0): https://creativecommons.org/licenses/by/4.0/
+
+Media assets (video, stills, audio) are NOT covered by this license. Each
+asset carries its own license and provenance in the task's
+assets.manifest.json. Assets marked "redistributable": false are referenced
+by URL and checksum only and are never stored in this repository.
+
+Source code is licensed separately under the MIT License; see LICENSE.

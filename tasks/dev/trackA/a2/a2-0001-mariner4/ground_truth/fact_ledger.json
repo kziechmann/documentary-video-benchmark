@@ -1,0 +1,44 @@
+{
+  "task_id": "a2-0001-mariner4",
+  "ledger_version": "draft-1",
+  "status_values": {
+    "supported": "stated by an authoritative pack document (D01, D02, D03, D07, D08, or D04 for what the film says)",
+    "contradicted": "an authoritative pack document states the opposite",
+    "not_in_pack": "no pack document supports it; narrating it is an unsupported claim"
+  },
+  "key_fact_rule": "Every entry with key=true must be stated in narration (figures may be rounded as noted) for full key-fact recall. Key facts correspond to the brief's must-include list.",
+  "reconcile_note": "Re-verify every `supported` entry against the verbatim D01/D02 text once placeholders are replaced.",
+  "facts": [
+    {"id": "F01", "claim": "Mariner 4 was launched on 28 November 1964.", "status": "supported", "key": true, "sources": ["D01", "D02", "D03", "D08"], "rounding_ok": false},
+    {"id": "F02", "claim": "Mariner 4 was launched from Cape Kennedy, Florida.", "status": "supported", "key": false, "sources": ["D01", "D02", "D03", "D08"]},
+    {"id": "F03", "claim": "Mariner 4's launch vehicle was an Atlas-Agena D.", "status": "supported", "key": true, "sources": ["D01", "D03", "D08"], "rounding_ok": false, "accept_also": ["Atlas-Agena"]},
+    {"id": "F04", "claim": "Mariner 3 was launched on 5 November 1964.", "status": "supported", "key": false, "sources": ["D02", "D03", "D08"]},
+    {"id": "F05", "claim": "Mariner 3 failed because its payload shroud did not separate.", "status": "supported", "key": true, "sources": ["D02", "D03", "D08"], "accept_also": ["nose cone did not come off", "shroud failed to jettison"]},
+    {"id": "F06", "claim": "Mariner 4 flew past Mars on 14–15 July 1965.", "status": "supported", "key": true, "sources": ["D01", "D02", "D03"], "rounding_ok": true, "accept_also": ["July 1965", "15 July 1965", "14 July 1965"]},
+    {"id": "F07", "claim": "Closest approach was 9,846 km (about 6,100 miles).", "status": "supported", "key": false, "sources": ["D01", "D02", "D03", "D08"], "rounding_ok": true, "tolerance": "±2%"},
+    {"id": "F08", "claim": "Mariner 4 returned 21 complete pictures.", "status": "supported", "key": true, "sources": ["D01", "D02", "D03", "D08"], "rounding_ok": false, "note": "'21 pictures' acceptable; '22 pictures' is contradicted (see F21)"},
+    {"id": "F09", "claim": "Each picture was 200 by 200 picture elements at 6 bits (64 gray levels).", "status": "supported", "key": false, "sources": ["D01", "D03", "D08"]},
+    {"id": "F10", "claim": "Data were transmitted at 8⅓ bits per second.", "status": "supported", "key": true, "sources": ["D01", "D02", "D03", "D08"], "rounding_ok": true, "accept_also": ["about eight bits per second", "8.33 bits per second"]},
+    {"id": "F11", "claim": "One picture took about 8 hours 35 minutes to transmit.", "status": "supported", "key": true, "sources": ["D01", "D02", "D03", "D08"], "rounding_ok": true, "accept_also": ["more than eight hours", "about eight and a half hours", "most of a day"]},
+    {"id": "F12", "claim": "Playback of the full picture set finished in early August 1965.", "status": "supported", "key": false, "sources": ["D01", "D03"]},
+    {"id": "F13", "claim": "The pictures showed cratered, Moon-like terrain.", "status": "supported", "key": true, "sources": ["D01", "D02", "D03"]},
+    {"id": "F14", "claim": "The pictures showed no evidence of canals.", "status": "supported", "key": true, "sources": ["D01", "D02", "D03"], "note": "F13 and F14 together satisfy the 'what the pictures revealed' must-include"},
+    {"id": "F15", "claim": "The pictures covered about 1% of the Martian surface.", "status": "supported", "key": false, "sources": ["D01", "D03"]},
+    {"id": "F16", "claim": "The occultation experiment measured a surface pressure of roughly 4–7 millibars.", "status": "supported", "key": false, "sources": ["D01", "D03"], "rounding_ok": true, "accept_also": ["less than one percent of Earth's", "a few thousandths of Earth's"]},
+    {"id": "F17", "claim": "The first picture was hand-colored at JPL from printed brightness numbers before the processed image was ready.", "status": "supported", "key": false, "sources": ["D03", "D04", "D06", "D07"], "note": "Required by beat 1 of the brief even though not a must-include fact; absence is a narrative-structure failure"},
+    {"id": "F18", "claim": "Mariner 4's launch mass was 260.8 kg.", "status": "supported", "key": false, "sources": ["D01", "D03", "D08"]},
+    {"id": "F19", "claim": "The mission was managed by the Jet Propulsion Laboratory for NASA.", "status": "supported", "key": false, "sources": ["D01", "D03"]},
+    {"id": "F20", "claim": "Communications with Mariner 4 ended on 21 December 1967.", "status": "supported", "key": false, "sources": ["D01", "D03", "D08"]},
+
+    {"id": "F21", "claim": "Mariner 4 returned 22 pictures.", "status": "contradicted", "key": false, "sources": ["D01", "D02", "D03"], "trap": "T02", "note": "D06 expectation superseded; D05 repeats it"},
+    {"id": "F22", "claim": "Mariner 4 orbited Mars.", "status": "contradicted", "key": false, "sources": ["D01", "D03"], "trap": "T01"},
+    {"id": "F23", "claim": "Mariner 4 passed within 5,000 miles of Mars.", "status": "contradicted", "key": false, "sources": ["D01", "D02", "D03"], "trap": "T01"},
+    {"id": "F24", "claim": "Mariner 4 proved there is no life on Mars.", "status": "contradicted", "key": false, "sources": ["D03"], "trap": "T04", "note": "D03 fact 16 states the mission did not establish presence or absence of life"},
+    {"id": "F25", "claim": "Mariner 4 stopped transmitting in 1966.", "status": "contradicted", "key": false, "sources": ["D01", "D03", "D08"], "trap": "T01"},
+    {"id": "F26", "claim": "The hand-colored first image was made with crayons.", "status": "contradicted", "key": false, "sources": ["D03", "D07"], "trap": "T01", "severity": "minor", "note": "Pack says pastels/colored pencils"},
+    {"id": "F27", "claim": "Mars exploration funding collapsed for the rest of the decade because of Mariner 4.", "status": "not_in_pack", "key": false, "sources": [], "trap": "T01"},
+    {"id": "F28", "claim": "Mariner 4 was the first spacecraft to return close-up pictures of another planet.", "status": "supported", "key": false, "sources": ["D01"]},
+    {"id": "F29", "claim": "Mariner 4 detected a Martian magnetic field.", "status": "contradicted", "key": false, "sources": ["D01"]},
+    {"id": "F30", "claim": "The first Mars orbiter was Mariner 9 in 1971.", "status": "supported", "key": false, "sources": ["D03"], "note": "Permissible legacy-beat context; not required"}
+  ]
+}
