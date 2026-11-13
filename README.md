@@ -74,4 +74,4 @@ Run the dev set, open a PR with your `results.json` and run logs per [`SUBMISSIO
 
 ## License and citation
 
-Code: MIT. Task metadata, annotations, and documentation: CC BY 4.0. Media: per-asset, see manifests. Cite via [`CITATION.cff`](CITATION.cff).
+Code: Apache-2.0. Task metadata, annotations, and documentation: CC BY 4.0. Media: per-asset, see manifests. Cite via [`CITATION.cff`](CITATION.cff).

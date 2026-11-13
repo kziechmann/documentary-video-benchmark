@@ -25,7 +25,7 @@ The output is a complete v0.1 of a GitHub repository (specification, data schema
 - **Report pillars, not just a composite.** A composite exists for leaderboards, but pillar scores and hard-gate failures are the primary result.
 - **Assume adversarial submissions.** Gates and minimum-content requirements must make degenerate outputs (a 10-second black video with one true sentence; a cut that uses one clip) score poorly.
 - **Reproducible by default.** Containerized harness, pinned versions, fixed seeds, deterministic metrics, a validator for submissions.
-- **Open and legal.** Code under MIT, task metadata and annotations under CC BY 4.0. Media is either redistributable (CC0 / CC BY / public domain) or referenced by URL + checksum with a fetch script; never redistribute footage whose license does not permit it. "Publicly viewable" is not "licensed."
+- **Open and legal.** Code under Apache-2.0, task metadata and annotations under CC BY 4.0. Media is either redistributable (CC0 / CC BY / public domain) or referenced by URL + checksum with a fetch script; never redistribute footage whose license does not permit it. "Publicly viewable" is not "licensed."
 - **Documentary ethics are part of the score.** Any synthetic, reenacted, or AI-generated footage must be disclosed on screen and in the manifest. No realistic synthetic likenesses of real people. News footage must not be re-cut to imply events that did not happen (sequence-implied causation is a grounding failure).
 
 ## 3. Task design
@@ -173,7 +173,7 @@ DATASHEET.md                   # datasheet for datasets; provenance; licensing; 
 CONTRIBUTING.md                # how to add tasks and assets, propose metrics, submit results
 SUBMISSION.md                  # results-bundle format, validator, hidden-set process
 GOVERNANCE.md                  # versioning policy, deprecation, takedown and dispute process
-LICENSE (MIT), LICENSE-DATA (CC BY 4.0), CITATION.cff, CHANGELOG.md
+LICENSE (Apache-2.0), LICENSE-DATA (CC BY 4.0), CITATION.cff, CHANGELOG.md
 schemas/                       # JSON Schemas: task, brief, delivery_spec, asset, script, edl, manifest, captions, results
 tasks/dev/trackA/a1/, a2/      # pilot tasks with source packs and asset manifests; ground_truth kept out of the public tree
 tasks/dev/trackB/              # Track B variants referencing the same source packs

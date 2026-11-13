@@ -8,4 +8,4 @@ asset carries its own license and provenance in the task's
 assets.manifest.json. Assets marked "redistributable": false are referenced
 by URL and checksum only and are never stored in this repository.
 
-Source code is licensed separately under the MIT License; see LICENSE.
+Source code is licensed separately under the Apache License 2.0; see LICENSE and NOTICE.
