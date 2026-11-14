@@ -1,0 +1,13 @@
+DocuBench — documentary video editing benchmark
+Copyright 2026 Kevin Ziechmann
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not
+use the source code in this repository except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Task metadata, annotations, briefs, benchmark-authored source-pack documents,
+ground-truth files, and documentation are licensed separately under
+CC BY 4.0; see LICENSE-DATA. Media assets carry their own licenses; see each
+task's assets.manifest.json.

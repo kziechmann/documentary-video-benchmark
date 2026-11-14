@@ -1,0 +1,32 @@
+{
+  "task_id": "a2-0001-mariner4",
+  "purpose": "Deterministic A/V alignment and visual-attribution scoring. For every EDL shot, the harness looks up the asset here and compares `entities` and `date` against the narration segment(s) and lower-thirds active during that shot (entities extracted by NER from script.json and OCR of on-screen text).",
+  "rules": {
+    "match": "Narration names an entity in `entities`, or no specific entity is named and the asset is `generic: true` or `illustrative_ok: true` with label present.",
+    "misattribution": "Narration or lower-third names an entity in `conflicts_with` while this asset is on screen.",
+    "date_tag": "Corner date tag (brief: first 3 s of each archival shot) must equal `date_tag_expected`; OCR mismatch counts as a graphics-accuracy error.",
+    "illustration_label": "Assets with `requires_label: true` must show OCR text matching /ILLUSTRATION\\s*[—-]\\s*.+(19|20)\\d\\d/ for the full shot duration."
+  },
+  "assets": {
+    "V01": {"entities": ["Mariner 4", "Mariner 3", "JPL", "Atlas-Agena D"], "date_tag_expected": "1965", "generic": false, "note": "Attribution per timecode; see segments below", "segments": "TODO: fill from D04 final transcript — map timecode ranges to Mariner 3 vs Mariner 4 content"},
+    "V02": {"entities": ["Mariner 4", "Atlas-Agena D", "Cape Kennedy", "launch"], "date_tag_expected": "1964", "conflicts_with": ["Mariner 3"], "generic": false},
+    "V03": {"entities": ["Mariner 3", "Atlas-Agena D", "Cape Kennedy", "launch"], "date_tag_expected": "1964", "conflicts_with": ["Mariner 4"], "generic": false, "trap": "T05"},
+    "V04": {"entities": ["JPL", "Space Flight Operations Facility", "encounter", "engineers", "Mariner 4"], "date_tag_expected": "1965", "generic": false},
+    "V05": {"entities": ["Goldstone", "Deep Space Network", "antenna", "tracking station"], "date_tag_expected": "1960s", "generic": true, "note": "Acceptable under any 'signal/tracking/transmission' narration"},
+    "V06": {"entities": ["Mars surface"], "date_tag_expected": null, "requires_label": true, "illustrative_ok": true, "conflicts_with": ["Mariner 4 picture", "Mariner 4 image", "frame"], "generic": false, "trap": "T08"},
+    "V07": {"entities": ["night sky"], "date_tag_expected": null, "generic": true, "trim_required_s": 2.0},
+    "S01": {"entities": ["first picture", "hand-colored", "JPL", "Mariner 4"], "date_tag_expected": "1965", "generic": false},
+    "S02": {"entities": ["Mariner 4", "crater", "frame 11", "picture"], "date_tag_expected": "1965", "generic": false},
+    "S03": {"entities": ["Mariner 9", "Mars surface"], "date_tag_expected": "1972", "requires_label": true, "illustrative_ok": true, "conflicts_with": ["Mariner 4"], "generic": false, "trap": "T06"},
+    "S04": {"entities": ["Mariner 2", "JPL", "spacecraft model"], "date_tag_expected": "1962", "conflicts_with": ["Mariner 4", "Mariner 3"], "generic": false, "trap": "T07"},
+    "S05": {"entities": ["Mariner 4", "spacecraft", "solar panels"], "date_tag_expected": "1964", "conflicts_with": ["Mariner 2", "Mariner 9"], "generic": false}
+  },
+  "beat_expectations": {
+    "note": "Soft expectations used by the alignment judge rubric, not hard rules.",
+    "1_hook": ["S01", "V04"],
+    "2_context": ["V03", "V02", "S05", "V01"],
+    "3_flyby": ["V04", "V05", "V01"],
+    "4_pictures": ["S02", "S01", "V06 (labeled)", "S03 (labeled)"],
+    "5_legacy": ["S05", "V07", "V06 (labeled)"]
+  }
+}

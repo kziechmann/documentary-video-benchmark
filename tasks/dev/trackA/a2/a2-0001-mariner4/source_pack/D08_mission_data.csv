@@ -1,0 +1,3 @@
+spacecraft,launch_date,launch_site,launch_vehicle,launch_mass_kg,outcome,mars_closest_approach_date_utc,closest_approach_km,complete_pictures_returned,picture_format,data_rate_bps,time_per_picture,end_of_communications,source_doc
+Mariner 3,1964-11-05,Cape Kennedy LC-13,Atlas-Agena D,260.8,failed — payload shroud did not separate,,,0,,,,1964-11-05,D02
+Mariner 4,1964-11-28,Cape Kennedy LC-12,Atlas-Agena D,260.8,success — Mars flyby,1965-07-15T01:00:57Z,9846,21,200x200 px at 6 bits,8.33,~8 h 35 min,1967-12-21,D01
