@@ -14,14 +14,18 @@
     "colorspace": "bt709",
     "color_range": "tv",
     "min_bitrate_kbps": 8000,
+    "source_conform_notes": {
+      "V01": "The ~large rendition is 30.000 fps and must be conformed to 30000/1001 without duplicated or dropped frames; the ~orig rendition is 23.976 fps and needs motion-aware conversion. Embedded archival film segments are 4:3 pillarboxed inside the 16:9 frame; do not crop or stretch them further.",
+      "stills": "Stills are of mixed resolution (479x450 up to 15761x9328). Scale with a high-quality resampler; no stretching; pan/scan moves permitted."
+    },
     "archival_sd_policy": {
       "aspect_handling": "pillarbox",
       "stretching": "forbidden",
       "upscale": "allowed",
       "frame_rate_conversion": "motion-compensated or blend; naive frame duplication penalized"
     },
-    "neutral_grade_required_for": ["S01", "S02", "S03", "S05"],
-    "color_chart_assets": ["V07"]
+    "neutral_grade_required_for": ["S01", "S02", "S07", "S08"],
+    "color_chart_assets": ["X01"]
   },
   "audio": {
     "codec": "aac",
@@ -34,6 +38,7 @@
     "loudness_range_max_lu": 12.0,
     "narration_segment_tolerance_lu": 3.0,
     "music_under_narration_min_db": 15.0,
+    "embedded_source_audio_policy": "Period launch audio and 1965 narration from V01 may be used as sound bites; level-match them to the narration anchor within 3 LU. No music under them while audible.",
     "narration_stem_policy": "A2: narration rendered with provided voice A01; declared alternative TTS permitted, must be listed in manifest.json"
   },
   "captions": {
@@ -48,7 +53,8 @@
     "min_text_height_fraction": 0.035,
     "safe_area_fraction": 0.05,
     "min_contrast_ratio": 4.5,
-    "min_on_screen_s_per_word": 0.33
+    "min_on_screen_s_per_word": 0.33,
+    "illustration_label_regex": "ILLUSTRATION\\s*[\\u2014-]\\s*.+(19|20)\\d\\d"
   },
   "runtime_window_s": [120, 180]
 }

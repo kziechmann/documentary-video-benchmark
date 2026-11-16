@@ -1,3 +1,3 @@
-spacecraft,launch_date,launch_site,launch_vehicle,launch_mass_kg,outcome,mars_closest_approach_date_utc,closest_approach_km,complete_pictures_returned,picture_format,data_rate_bps,time_per_picture,end_of_communications,source_doc
-Mariner 3,1964-11-05,Cape Kennedy LC-13,Atlas-Agena D,260.8,failed — payload shroud did not separate,,,0,,,,1964-11-05,D02
-Mariner 4,1964-11-28,Cape Kennedy LC-12,Atlas-Agena D,260.8,success — Mars flyby,1965-07-15T01:00:57Z,9846,21,200x200 px at 6 bits,8.33,~8 h 35 min,1967-12-21,D01
+spacecraft,nssdca_id,launch_date,launch_site,launch_vehicle,launch_mass_kg,outcome,mars_closest_approach_utc,closest_approach_km,closest_approach_miles,complete_pictures_returned,partial_pictures,picture_format,bits_per_picture,data_rate_bps,picture_playback_completed,end_of_communications,source_docs
+Mariner 3,1964-073A,1964-11-05,Cape Kennedy (Cape Canaveral),Atlas-Agena D,260.8,failed — protective shroud did not eject; solar panels could not deploy,,,,0,0,,,,,1964-11-05,D01;D09
+Mariner 4,1964-077A,1964-11-28,Cape Kennedy (Cape Canaveral),Atlas-Agena D,260.68,success — Mars flyby,1965-07-15T01:00:57Z,9846,6118,21,1,200 lines x 200 pixels x 6 bits,240000,8.333,1965-08-03,1967-12-21 (D01) / 1967-12-31 (D09),D01;D02;D09

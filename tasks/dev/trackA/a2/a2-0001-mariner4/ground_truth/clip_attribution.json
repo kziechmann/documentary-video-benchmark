@@ -1,32 +1,55 @@
 {
   "task_id": "a2-0001-mariner4",
-  "purpose": "Deterministic A/V alignment and visual-attribution scoring. For every EDL shot, the harness looks up the asset here and compares `entities` and `date` against the narration segment(s) and lower-thirds active during that shot (entities extracted by NER from script.json and OCR of on-screen text).",
+  "attribution_version": "draft-2",
+  "purpose": "Deterministic A/V alignment and visual-attribution scoring. For every EDL shot, the harness looks up the asset (and, for V01, the source timecode range) here and compares `entities` and `date` against the narration segment(s) and lower-thirds active during that shot (entities by NER on script.json, on-screen text by OCR).",
   "rules": {
-    "match": "Narration names an entity in `entities`, or no specific entity is named and the asset is `generic: true` or `illustrative_ok: true` with label present.",
-    "misattribution": "Narration or lower-third names an entity in `conflicts_with` while this asset is on screen.",
+    "match": "Narration names an entity in `entities`, or no specific entity is named and the segment is `generic: true` or `illustrative_ok: true` with the label present.",
+    "misattribution": "Narration or lower-third names an entity in `conflicts_with` while this asset/segment is on screen.",
     "date_tag": "Corner date tag (brief: first 3 s of each archival shot) must equal `date_tag_expected`; OCR mismatch counts as a graphics-accuracy error.",
-    "illustration_label": "Assets with `requires_label: true` must show OCR text matching /ILLUSTRATION\\s*[—-]\\s*.+(19|20)\\d\\d/ for the full shot duration."
+    "illustration_label": "Segments/assets with `requires_label: true` must show OCR text matching delivery_spec.graphics.illustration_label_regex for the full shot duration.",
+    "slate": "Segments marked `slate: true` must not appear in the cut (trap T12)."
+  },
+  "video_segments": {
+    "V01": {
+      "timebase": "~large rendition, 30 fps, seconds from reel start",
+      "segments": [
+        {"id": "V01.slate0", "in": 0.0, "out": 18.0, "slate": true},
+        {"id": "V01.anim", "in": 18.0, "out": 78.0, "entities": ["Mariner 4 (animation)", "Mars approach"], "date_tag_expected": null, "requires_label": true, "illustrative_ok": true, "conflicts_with": ["period footage", "1964", "1965"], "note": "Modern computer animation; slate at 18–30 overlaps the start, trim to ≥ 30.0", "slate_overlap": [18.0, 30.0]},
+        {"id": "V01.slate1", "in": 78.0, "out": 89.5, "slate": true},
+        {"id": "V01.launch", "in": 89.5, "out": 150.0, "entities": ["Mariner 4", "launch", "Atlas-Agena D", "Cape Kennedy", "launch control", "28 November 1964"], "date_tag_expected": "1964", "conflicts_with": ["Mariner 3"], "audio": "period launch-control radio traffic; no music under it while audible", "note": "Pad, blockhouse/control room, liftoff and ascent; color period film"},
+        {"id": "V01.slate2", "in": 150.0, "out": 156.0, "slate": true},
+        {"id": "V01.first_image", "in": 156.0, "out": 168.4, "entities": ["Mariner 4 first picture", "limb of Mars", "1965"], "date_tag_expected": "1965", "conflicts_with": [], "note": "Same image as S08"},
+        {"id": "V01.slate3", "in": 168.4, "out": 180.0, "slate": true},
+        {"id": "V01.picture11", "in": 180.0, "out": 186.0, "entities": ["Mariner 4 picture 11", "Atlantis region", "crater"], "date_tag_expected": "1965", "conflicts_with": [], "note": "Same image as S02"},
+        {"id": "V01.slate4", "in": 186.0, "out": 198.9, "slate": true},
+        {"id": "V01.mariner_crater", "in": 198.9, "out": 209.2, "entities": ["Mariner 4 picture", "Mariner Crater"], "date_tag_expected": "1965", "conflicts_with": [], "note": "Same image as S07"},
+        {"id": "V01.slate5", "in": 209.2, "out": 221.0, "slate": true},
+        {"id": "V01.handcolor_film", "in": 221.0, "out": 318.0, "entities": ["JPL", "hand-colored first picture", "data strips", "engineers", "Robert Leighton", "1965"], "date_tag_expected": "1965", "conflicts_with": ["launch", "Mariner 3"], "audio": "period 1965 narration 220.9–265.0 then location sound; no music under narration while audible", "note": "B/W and color period film: printer strips, people pinning strips, coloring with pastels, crowd in operations room"},
+        {"id": "V01.slate6", "in": 318.0, "out": 324.0, "slate": true},
+        {"id": "V01.framed_image", "in": 324.0, "out": 335.8, "entities": ["hand-colored first picture", "framed", "JPL"], "date_tag_expected": "1965", "conflicts_with": [], "note": "Framed artifact photographed today; date tag refers to the artwork; same subject as S01"},
+        {"id": "V01.slate7", "in": 335.8, "out": 348.0, "slate": true},
+        {"id": "V01.interview", "in": 348.0, "out": 517.6, "entities": ["Humphrey 'Hoppy' Price", "NASA Mars Exploration Program", "2025 interview"], "date_tag_expected": "2025", "conflicts_with": ["Mariner 4 team", "1965"], "requires_lower_third": "name, role, interview year", "note": "Sound bites are opinion/recollection; see trap T04 for 06:27–06:34"}
+      ]
+    }
   },
   "assets": {
-    "V01": {"entities": ["Mariner 4", "Mariner 3", "JPL", "Atlas-Agena D"], "date_tag_expected": "1965", "generic": false, "note": "Attribution per timecode; see segments below", "segments": "TODO: fill from D04 final transcript — map timecode ranges to Mariner 3 vs Mariner 4 content"},
-    "V02": {"entities": ["Mariner 4", "Atlas-Agena D", "Cape Kennedy", "launch"], "date_tag_expected": "1964", "conflicts_with": ["Mariner 3"], "generic": false},
-    "V03": {"entities": ["Mariner 3", "Atlas-Agena D", "Cape Kennedy", "launch"], "date_tag_expected": "1964", "conflicts_with": ["Mariner 4"], "generic": false, "trap": "T05"},
-    "V04": {"entities": ["JPL", "Space Flight Operations Facility", "encounter", "engineers", "Mariner 4"], "date_tag_expected": "1965", "generic": false},
-    "V05": {"entities": ["Goldstone", "Deep Space Network", "antenna", "tracking station"], "date_tag_expected": "1960s", "generic": true, "note": "Acceptable under any 'signal/tracking/transmission' narration"},
-    "V06": {"entities": ["Mars surface"], "date_tag_expected": null, "requires_label": true, "illustrative_ok": true, "conflicts_with": ["Mariner 4 picture", "Mariner 4 image", "frame"], "generic": false, "trap": "T08"},
-    "V07": {"entities": ["night sky"], "date_tag_expected": null, "generic": true, "trim_required_s": 2.0},
-    "S01": {"entities": ["first picture", "hand-colored", "JPL", "Mariner 4"], "date_tag_expected": "1965", "generic": false},
-    "S02": {"entities": ["Mariner 4", "crater", "frame 11", "picture"], "date_tag_expected": "1965", "generic": false},
+    "X01": {"entities": ["test pattern"], "slate": true, "note": "Trim; never on screen"},
+    "S01": {"entities": ["hand-colored first picture", "Mariner 4", "JPL"], "date_tag_expected": "1965", "generic": false},
+    "S02": {"entities": ["Mariner 4 picture 11", "Atlantis region", "crater", "Mars surface"], "date_tag_expected": "1965", "generic": false},
     "S03": {"entities": ["Mariner 9", "Mars surface"], "date_tag_expected": "1972", "requires_label": true, "illustrative_ok": true, "conflicts_with": ["Mariner 4"], "generic": false, "trap": "T06"},
-    "S04": {"entities": ["Mariner 2", "JPL", "spacecraft model"], "date_tag_expected": "1962", "conflicts_with": ["Mariner 4", "Mariner 3"], "generic": false, "trap": "T07"},
-    "S05": {"entities": ["Mariner 4", "spacecraft", "solar panels"], "date_tag_expected": "1964", "conflicts_with": ["Mariner 2", "Mariner 9"], "generic": false}
+    "S04": {"entities": ["Mariner 1", "JPL Spacecraft Assembly Facility", "engineers"], "date_tag_expected": "1962", "conflicts_with": ["Mariner 4", "Mariner 3"], "generic": false, "trap": "T07"},
+    "S05": {"entities": ["Mariner C model", "model", "Mariner 3/4 design"], "date_tag_expected": "1964", "conflicts_with": ["flight spacecraft"], "lower_third_must_contain": "model", "generic": false, "trap": "T07"},
+    "S06": {"entities": ["Mariner 3", "Cape Kennedy", "spacecraft processing"], "date_tag_expected": "1964", "conflicts_with": ["Mariner 4"], "generic": false, "trap": "T05"},
+    "S07": {"entities": ["Mariner 4 picture", "Mariner Crater", "Mars surface"], "date_tag_expected": "1965", "generic": false},
+    "S08": {"entities": ["Mariner 4 first picture", "limb of Mars"], "date_tag_expected": "1965", "generic": false},
+    "S09": {"entities": ["Goldstone", "Deep Space Network", "antenna"], "date_tag_expected": "2013", "requires_label": true, "illustrative_ok": true, "conflicts_with": ["85-foot antenna", "1965 tracking"], "generic": false, "trap": "T08"}
   },
   "beat_expectations": {
     "note": "Soft expectations used by the alignment judge rubric, not hard rules.",
-    "1_hook": ["S01", "V04"],
-    "2_context": ["V03", "V02", "S05", "V01"],
-    "3_flyby": ["V04", "V05", "V01"],
-    "4_pictures": ["S02", "S01", "V06 (labeled)", "S03 (labeled)"],
-    "5_legacy": ["S05", "V07", "V06 (labeled)"]
+    "1_hook": ["V01.handcolor_film", "S01", "V01.framed_image"],
+    "2_context": ["S06", "S05 (as model)", "V01.launch"],
+    "3_flyby": ["V01.anim (labeled)", "S09 (labeled)", "V01.handcolor_film"],
+    "4_pictures": ["S08", "S02", "S07", "S03 (labeled, contrast only)"],
+    "5_legacy": ["V01.interview (with lower-third)", "V01.anim (labeled)", "S01"]
   }
 }

@@ -1,70 +1,115 @@
 {
   "task_id": "a2-0001-mariner4",
-  "scoring": "trap_resistance = traps_avoided / traps_total. A trap is 'fallen for' if the narration, on-screen text, or EDL exhibits the listed failure signature. Each trap also feeds the pillar metric named in `also_counts_in`.",
+  "traps_version": "draft-2",
+  "scoring": "trap_resistance = traps_avoided / traps_total. A trap is 'fallen for' if the narration, on-screen text, or EDL exhibits the listed failure signature. Each trap also feeds the pillar metric named in `also_counts_in`. Traps marked natural=true are genuine errors or disagreements in official sources, not benchmark fabrications.",
   "traps": [
     {
       "id": "T01",
       "kind": "low_authority_document",
+      "natural": false,
       "carrier": "D05",
-      "description": "Hobbyist blog with four false claims (orbited Mars; within 5,000 miles; proved no life; transmitting until 1966) and one unsupported claim (funding collapse).",
-      "failure_signature": "Any of F22, F23, F24, F25, F27 asserted in narration or on-screen text, or any citation to D05 for a factual claim.",
+      "description": "Hobbyist blog with false claims (orbited Mars; within 5,000 miles; proved no life; transmitting until 1966; crayons) and one unsupported claim (funding collapse).",
+      "failure_signature": "Any of F22, F23, F24, F25, F26, F27 asserted in narration or on-screen text, or any citation to D05 for a factual claim.",
       "also_counts_in": "grounding.contradiction_rate"
     },
     {
       "id": "T02",
       "kind": "outdated_statistic",
-      "carrier": "D06",
-      "description": "Pre-playback wire bulletin expects 22 pictures; authoritative count is 21 complete plus a partial.",
-      "failure_signature": "F21 asserted ('22 pictures' / 'twenty-two photographs') without qualification.",
+      "natural": false,
+      "carrier": "D06 (expects 22 pictures); D05 repeats it",
+      "description": "Pre-playback bulletin expects 22 pictures; the authoritative count is 21 complete plus a partial 22nd.",
+      "failure_signature": "F21 ('22 complete pictures') asserted = contradiction; bare '22 pictures/photographs' without 'partial' qualifier = imprecision (minor).",
       "also_counts_in": "grounding.contradiction_rate"
     },
     {
       "id": "T03",
       "kind": "similar_names_documents",
-      "carrier": "D08, D02",
-      "description": "Mariner 3 row sits beside Mariner 4 in the data table; same vehicle, same month, same mass.",
-      "failure_signature": "Mariner 3 attributes (5 Nov 1964, LC-13, failure) attributed to Mariner 4 or vice versa in narration or lower-thirds.",
+      "natural": true,
+      "carrier": "D01 (adjacent catalog entries), D08",
+      "description": "Mariner 3 and Mariner 4: identical spacecraft, same vehicle, same month, masses 260.8 vs 260.68 kg.",
+      "failure_signature": "Mariner 3 attributes (5 Nov 1964, shroud failure) attributed to Mariner 4 or vice versa in narration or lower-thirds.",
       "also_counts_in": "narrative.entity_consistency"
     },
     {
       "id": "T04",
-      "kind": "widely_believed_refuted",
-      "carrier": "D05 (asserts), D03 fact 16 (refutes)",
-      "description": "'Mariner 4 proved Mars was dead/lifeless.' Common framing in popular retellings; the pack explicitly declines it and the brief forbids life claims without direct support.",
-      "failure_signature": "F24 or equivalent ('showed Mars was lifeless', 'killed the idea of life on Mars') in narration or title cards.",
+      "kind": "widely_believed_overclaim",
+      "natural": true,
+      "carrier": "D05 (asserts); D04 interview 06:27–06:34 ('put the nail in the coffin… no cities on Mars'); D09 ('quashed ideas of possible intelligent life')",
+      "description": "The pack supports 'dispelled expectations of Martian civilizations' and 'scientists then thought life unlikely'. It does not support 'proved there is no life'. The interview sound bite tempts the stronger claim.",
+      "failure_signature": "F24 or equivalent ('proved Mars was lifeless', 'showed there was no life') in narration or title cards; or an interview sound bite used as the sole support for a factual claim about life.",
       "also_counts_in": "grounding.contradiction_rate; brief.must_exclude"
     },
     {
       "id": "T05",
-      "kind": "misattributed_footage",
-      "carrier": "V03",
-      "description": "Generic filename `mariner_launch_1964_b.mp4`; the clip is the Mariner 3 launch (5 Nov 1964). D07 identifies it correctly.",
-      "failure_signature": "EDL places V03 on screen while narration or lower-third refers to the Mariner 4 launch, or V03 carries a '28 November 1964' date tag. Using V03 correctly for the Mariner 3 beat is the intended good behavior.",
+      "kind": "misattributed_still_identical_twin",
+      "natural": true,
+      "carrier": "S06 (library title 'KSC-64C-4235'; caption identifies Mariner 3)",
+      "description": "Photograph of Mariner 3 during processing at Cape Kennedy. The spacecraft are identical; only the caption (D07) distinguishes them.",
+      "failure_signature": "S06 on screen while narration or lower-third identifies the spacecraft shown as Mariner 4, or S06 carrying a lower-third 'Mariner 4'. Using S06 for the Mariner 3 beat is the intended good behavior.",
       "also_counts_in": "grounding.visual_attribution"
     },
     {
       "id": "T06",
       "kind": "similar_visual_different_mission",
-      "carrier": "S03",
-      "description": "Mariner 9 orbiter image (1972) with generic filename `mars_closeup.jpg`. Sidecar and D07 identify it correctly.",
-      "failure_signature": "S03 on screen during 'what the pictures showed' beat without an ILLUSTRATION label, or any narration/lower-third calling it a Mariner 4 picture.",
-      "also_counts_in": "grounding.visual_attribution; brief.must_exclude; disclosure"
+      "natural": false,
+      "carrier": "S03 (filename mars_crater_closeup.jpg; title and D07 say Mariner 9)",
+      "description": "Mariner 9 orbiter image (1972) under a generic filename.",
+      "failure_signature": "S03 on screen during the 'what the pictures showed' beat without an ILLUSTRATION label, or any narration/lower-third calling it a Mariner 4 picture.",
+      "also_counts_in": "grounding.visual_attribution; disclosure"
     },
     {
       "id": "T07",
-      "kind": "caption_ambiguity",
-      "carrier": "S04",
-      "description": "Title 'Mariner spacecraft at JPL' is accurate but non-specific; the still shows a Mariner 2 (Venus, 1962) model. S05 is the correct Mariner 4 image.",
-      "failure_signature": "S04 on screen with a lower-third or narration identifying it as Mariner 4.",
+      "kind": "wrong_spacecraft_or_model",
+      "natural": true,
+      "carrier": "S04 (Mariner 1, 1962; generic filename) and S05 (Mariner C model, not flight hardware)",
+      "description": "S04 is a different spacecraft design; S05 is a display model of the Mariner 3/4 design.",
+      "failure_signature": "S04 on screen with narration or lower-third identifying it as Mariner 4 or Mariner 3; S05 on screen with a lower-third that calls it the Mariner 4 spacecraft without the word 'model'.",
       "also_counts_in": "grounding.visual_attribution"
     },
     {
       "id": "T08",
       "kind": "non_contemporaneous_illustration",
-      "carrier": "V06",
-      "description": "Modern MRO flyover is attractive B-roll for the 'craters' beat. Permitted only with the on-screen ILLUSTRATION label and a manifest flag.",
-      "failure_signature": "V06 on screen without an OCR-detectable 'ILLUSTRATION' label for its full duration, or manifest entry lacking `illustrative: true`. Undisclosed use also triggers the disclosure gate.",
+      "natural": true,
+      "carrier": "V01 00:18–01:18 (modern computer animation) and S09 (2013 photograph of a 70 m antenna)",
+      "description": "Attractive B-roll that is not period material. Permitted only with the on-screen ILLUSTRATION label and a manifest flag. S09 is additionally anachronistic: 1965 tracking used 85-foot antennas (D09).",
+      "failure_signature": "Either asset on screen without an OCR-detectable label matching delivery_spec.graphics.illustration_label_regex for its full duration, or manifest entry lacking `illustrative: true`. Undisclosed use also triggers the disclosure gate.",
       "also_counts_in": "disclosure; gates"
+    },
+    {
+      "id": "T09",
+      "kind": "typo_in_official_source",
+      "natural": true,
+      "carrier": "D09 ('June 14, 1965 — NASA's Mariner 4 became the first spacecraft to fly by Mars')",
+      "description": "A genuine typo on the NASA mission page; every other statement in the pack gives July.",
+      "failure_signature": "Narration, lower-third, or caption dates the flyby to June 1965 (F32).",
+      "also_counts_in": "grounding.contradiction_rate"
+    },
+    {
+      "id": "T10",
+      "kind": "disagreement_between_official_sources",
+      "natural": true,
+      "carrier": "D01 ('21 December 1967') vs D09 ('Dec. 31, 1967')",
+      "description": "End of communications. D01 is the archival catalog.",
+      "failure_signature": "Narration states 'December 31, 1967' unhedged (F31, minor). Stating 'December 1967' or the D01 date is correct.",
+      "also_counts_in": "grounding.citation_accuracy (minor)"
+    },
+    {
+      "id": "T11",
+      "kind": "error_in_asset_caption",
+      "natural": true,
+      "carrier": "S05 library caption ('Mariner-C was launched on November 4, 1964')",
+      "description": "The NASA Glenn caption disagrees with D01 and D09 (5 November 1964).",
+      "failure_signature": "Narration or lower-third gives 4 November 1964 for the Mariner 3 launch (F33, minor).",
+      "also_counts_in": "grounding.citation_accuracy (minor)"
+    },
+    {
+      "id": "T12",
+      "kind": "embedded_text_slates",
+      "natural": true,
+      "carrier": "V01 slates at 0:00, 0:18, 1:18, 2:30, 2:48, 3:06, 3:30, 5:18, 5:36",
+      "description": "The reel's own title cards are not content.",
+      "failure_signature": "Any V01 slate frame appears in the cut (OCR match on slate text).",
+      "also_counts_in": "visual.source_handling; brief.must_exclude"
     }
   ]
 }

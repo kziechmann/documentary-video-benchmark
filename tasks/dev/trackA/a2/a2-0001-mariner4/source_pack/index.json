@@ -4,21 +4,23 @@
   "documents": [
     {
       "doc_id": "D01",
-      "file": "D01_nssdca_mariner4_catalog.md",
-      "title": "NSSDCA Master Catalog — Mariner 4 (spacecraft entry)",
+      "file": "D01_nssdca_catalog_entries.md",
+      "title": "NSSDCA Master Catalog entries: Mariner 4, Mariner 4 TV experiment, Mariner 3 (verbatim)",
       "source_type": "primary / government archive",
       "publisher": "NASA Space Science Data Coordinated Archive",
-      "date": "current",
-      "benchmark_role": "authoritative; DRAFT SUMMARY to be replaced with verbatim public-domain text"
+      "date": "retrieved 2026-11-16",
+      "words": 1982,
+      "benchmark_role": "authoritative; verbatim public-domain text; archival catalog preferred where NASA sources disagree"
     },
     {
       "doc_id": "D02",
-      "file": "D02_jpl_results_release_1965.md",
-      "title": "JPL/NASA release on Mariner 4 encounter results",
-      "source_type": "primary / contemporaneous press release",
-      "publisher": "NASA / JPL",
-      "date": "1965-08",
-      "benchmark_role": "authoritative; DRAFT SUMMARY to be replaced with verbatim public-domain text"
+      "file": "D02_report_from_mars_1966.md",
+      "title": "Report from Mars: Mariner IV 1964–1965 (NASA/JPL booklet, full OCR text)",
+      "source_type": "primary / contemporaneous NASA publication",
+      "publisher": "NASA; prepared by JPL/Caltech; NTRS 19660013521",
+      "date": "1966",
+      "words": 13814,
+      "benchmark_role": "authoritative; long-document retrieval test; OCR noise present"
     },
     {
       "doc_id": "D03",
@@ -27,52 +29,61 @@
       "source_type": "curated / benchmark editorial",
       "publisher": "DocuBench editorial",
       "date": "2026",
-      "benchmark_role": "authoritative; defines ledger statuses where primary docs are silent"
+      "benchmark_role": "authoritative; every line cites D01/D02/D04/D07/D09; surfaces the inter-source disagreements explicitly"
     },
     {
       "doc_id": "D04",
       "file": "D04_transcript_V01.md",
-      "title": "Transcript — JPL mission film (asset V01)",
-      "source_type": "transcript of archival film",
-      "publisher": "DocuBench (ASR + human correction)",
-      "date": "film 1965; transcript 2026",
-      "benchmark_role": "authoritative for what the film says; period claims may be superseded by D01–D03"
+      "title": "Transcript and structure of asset V01 (NASA/JPL 2025 media reel)",
+      "source_type": "transcript of compilation video",
+      "publisher": "DocuBench, from NASA-supplied captions and on-screen slates",
+      "date": "reel 2025; contents 1964–1965 and 2025",
+      "benchmark_role": "authoritative for what the reel says/shows; interview statements are opinion (carrier for trap T04)"
     },
     {
       "doc_id": "D05",
       "file": "D05_blog_redplanet_fans.md",
       "title": "\"The probe that proved Mars was dead\" — Red Planet Fans blog",
-      "source_type": "secondary / hobbyist blog",
+      "source_type": "secondary / hobbyist blog (fictional, benchmark-authored)",
       "publisher": "redplanetfans.example",
       "date": "2019-07-14",
-      "benchmark_role": "TRAP: low authority, contains four false or unsupported claims"
+      "benchmark_role": "TRAP T01: low authority; false claims (orbited; within 5,000 miles; proved no life; ended 1966; crayons) and one unsupported claim (funding collapse)"
     },
     {
       "doc_id": "D06",
       "file": "D06_wire_bulletin_1965-07-15.md",
       "title": "Wire bulletin: \"Mariner 4 begins Mars picture playback\"",
-      "source_type": "secondary / contemporaneous news bulletin",
+      "source_type": "secondary / contemporaneous news bulletin (reconstructed, benchmark-authored)",
       "publisher": "period wire service (reconstructed)",
       "date": "1965-07-15",
-      "benchmark_role": "TRAP: outdated — pre-playback expectation (22 pictures) superseded by D01/D02 (21 complete)"
+      "benchmark_role": "TRAP T02: pre-playback expectation of 22 pictures; otherwise consistent with D01"
     },
     {
       "doc_id": "D07",
       "file": "D07_image_captions.md",
-      "title": "Image and clip captions with identification notes",
+      "title": "Asset captions (verbatim NASA library text) with identification notes",
       "source_type": "curated / archive captions",
-      "publisher": "DocuBench editorial from NASA/JPL captions",
+      "publisher": "DocuBench editorial quoting NASA Image and Video Library",
       "date": "2026",
-      "benchmark_role": "authoritative; identifies S03 and S04 correctly, resolving the misleading filenames"
+      "benchmark_role": "authoritative; controlling identification for S03, S04, S05, S06, S09"
     },
     {
       "doc_id": "D08",
       "file": "D08_mission_data.csv",
       "title": "Mission data table — Mariner 3 and Mariner 4",
       "source_type": "curated data table",
-      "publisher": "DocuBench editorial from D01",
+      "publisher": "DocuBench editorial from D01/D09",
       "date": "2026",
-      "benchmark_role": "authoritative; contains Mariner 3 row to test similar-name confusion"
+      "benchmark_role": "authoritative; Mariner 3 row beside Mariner 4 (trap T03); records the end-of-communications disagreement"
+    },
+    {
+      "doc_id": "D09",
+      "file": "D09_nasa_science_mission_page.md",
+      "title": "NASA Science mission page: Mariner 4 (verbatim page text)",
+      "source_type": "primary / agency web page",
+      "publisher": "NASA Science (science.nasa.gov)",
+      "date": "retrieved 2026-11-16",
+      "benchmark_role": "authoritative but contains genuine errors and disagreements with D01: 'June 14, 1965' (T09), 'Dec. 31, 1967' (T10), '22 lines of a 22nd'; carrier of the permitted 'quashed ideas of intelligent life' wording"
     }
   ]
 }
